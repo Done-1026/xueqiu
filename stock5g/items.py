@@ -8,7 +8,11 @@
 import scrapy
 
 
-class Stock5GItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+class StockInfoItem(scrapy.Item):
+    code = scrapy.Field()
+    ind_id = scrapy.Field()
+    ind_name = scrapy.Field()
+    name = scrapy.Field()
+    stock_id = scrapy.Field()
+    stock_type = scrapy.Field()
     pass

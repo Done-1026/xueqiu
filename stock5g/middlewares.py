@@ -105,7 +105,8 @@ class Stock5GDownloaderMiddleware(object):
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
-class MyUserAgent(UserAgentMiddleware):
+class MyUserAgentMiddleware(UserAgentMiddleware):
+
     def __init__(self, user_agent):
         self.user_agent = user_agent
 
@@ -117,6 +118,7 @@ class MyUserAgent(UserAgentMiddleware):
 
     def process_request(self, request, spider):
         if self.user_agent:
+            # print(self.user_agent)
             request.headers.setdefault(b'User-Agent',random.choice(self.user_agent))
             print(request.headers.get(b'User-Agent'))
 
