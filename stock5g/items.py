@@ -15,4 +15,5 @@ class StockInfoItem(scrapy.Item):
     name = scrapy.Field()
     stock_id = scrapy.Field()
     stock_type = scrapy.Field()
-    pass
+
+

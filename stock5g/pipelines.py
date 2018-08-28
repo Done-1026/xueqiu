@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 class StockInfoPipeline(object):
     def open_spider(self, spider):
         self.conn = pymysql.connect(host='localhost', user='yxd',
-                               password='12345679', port=3306, db='stock')
+                               password='12345678', port=3306, db='stock')
         self.c = self.conn.cursor()
 
     def close_spider(self, spider):

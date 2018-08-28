@@ -10,9 +10,9 @@ from stock5g.items import StockInfoItem
 
 class StockInfo(scrapy.Spider):
     name = 'stock_info'
-
+    unstock = open('unstock.txt', 'w')
     custom_settings = {
-
+        'ITEM_PIPELINES':{'stock5g.pipelines.StockInfoPipeline': 300,}
     }
 
     def start_requests(self):
@@ -53,6 +53,5 @@ class StockInfo(scrapy.Spider):
             yield info
         except IndexError as e:
             stock = urllib.parse.unquote(response.request.body.decode('utf-8').split('=')[1])
-            print('<{0}>,此公司未上市!'.format(stock))
-
-
+            print('<{0}>,未查询到上市信息!'.format(stock))
+            self.unstock.write(stock+'\n')
