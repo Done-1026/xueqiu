@@ -52,24 +52,28 @@ class MysqlOpt:
 
     def insert(self, *args, **kw):
         # 插入
-        if args:
+        if args != ():
             tags = ''
+            #logging.warning(tags)
+            #logging.warning(args)
             if isinstance(args[0], (list, tuple)):
                 values = str(tuple(args[0]))
             else:
                 values = str(tuple(args))
-        elif not args and kw:
+        elif kw:
             tags = '('+','.join(kw.keys())+')'
             values = tuple(kw.values())
         else:
             raise Exception('No values!')
         try:
-            logging.info("insert into {0} {1} values {2}".format(self.tbname, tags, values))
+            #logging.info("insert into {0} {1} values {2}".format(self.tbname, tags, values))
             self.db.c.execute(
                 "insert into {0} {1} values {2}".format(self.tbname, tags, values)
             )
             self.db.commit()
         except pymysql.err.ProgrammingError as e:
+            logging.warning(e)
+        except pymysql.err.IntegrityError as e:
             logging.warning(e)
 
 

@@ -56,11 +56,10 @@ class StockBaseLinksPipeline(StockInfoPipeline):
         self.conn_db = MysqlConn(
             host=self.host, port=self.port, user=self.user, password=self.password, database=self.database)
         self.conn_tb_info = MysqlOpt(self.conn_db, 'info')
-        self.conn_tb_links = MysqlOpt(self.conn_db, 'base_link')
+        self.conn_tb_links = MysqlOpt(self.conn_db, 'base_links')
         spider.conn_tb_info = self.conn_tb_info
 
     def process_item(self, item, spider):
         link = item['links']
-        link.pop(-3)
-        self.conn_tb_links.insert(args=link)
-        #return item
+        self.conn_tb_links.insert(link)
+        return item

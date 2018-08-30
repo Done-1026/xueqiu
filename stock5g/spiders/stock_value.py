@@ -1,9 +1,12 @@
+import logging
 
 import pymysql
 import scrapy
 
 from Utils.mysql_api import MysqlConn, MysqlOpt
 from stock5g.items import StockBasicLinksItem
+
+logging.basicConfig(level=logging.INFO)
 
 
 class StockValue(scrapy.Spider):
@@ -13,7 +16,7 @@ class StockValue(scrapy.Spider):
     }
 
     def start_requests(self):
-        for i in self.conn_tb_info.select('code', 'name'):
+        for i in self.conn_tb_info.select('code', 'name', type=11):
             code, name = i
             url = 'https://xueqiu.com/S/'+code
             headers = {
@@ -25,6 +28,9 @@ class StockValue(scrapy.Spider):
         item = StockBasicLinksItem()
         code_name = [response.meta['code'], response.meta['name']]
         links = response.xpath(r"//div[@class='stock-links']//li//a//@href").extract()
-        item['links'] = code_name + links
+        print(response.request.headers['User-Agent'])
+        links.pop(-3)
+        item['links'] = code_name+links
+        #logging.info(item)
         return item
 
