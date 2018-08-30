@@ -1,27 +1,34 @@
+import logging
+
 import pymysql
 
+logging.basicConfig(level=logging.INFO)
 
 class MysqlConn:
     # 创建数据库连接
-    def __init__(self, host, port, user, password, db):
+    def __init__(self, host, port, user, password, database):
         self.conn = pymysql.connect(
-            host=host, port=port, user=user, password=password, db=db)
+            host=host, port=port, user=user, password=password, database=database)
         self.c = self.conn.cursor()
 
-    def close(self):
-        self.conn.commit()
+    def close(self, save=True):
+        if save:
+            self.conn.commit()
         self.conn.close()
+
+    def commit(self):
+        self.conn.commit()
 
 
 class MysqlOpt:
-    # 创建表连接
+    """创建表连接"""
     def __init__(self, db, tbname):
         self.db = db
         self.tbname = tbname
 
     @staticmethod
     def tf_dict(kw):
-        # 将字典转换为SQL,where语句的条件
+        """将字典转换为SQL,where语句的条件"""
         term = []
         for k, v in kw.items():
             if isinstance(v, int):
@@ -31,7 +38,7 @@ class MysqlOpt:
         return ' and '.join(term)
 
     def select(self, *tags, **kw):
-        # 返回查询结果，tags为查询的字段，kw为查询条件
+        """返回查询结果，tags为查询的字段，kw为查询条件"""
         if not tags:
             tags = '*'
         if not kw:
@@ -43,8 +50,31 @@ class MysqlOpt:
         result = self.db.c.fetchall()
         return result
 
+    def insert(self, *args, **kw):
+        # 插入
+        if args:
+            tags = ''
+            if isinstance(args[0], (list, tuple)):
+                values = str(tuple(args[0]))
+            else:
+                values = str(tuple(args))
+        elif not args and kw:
+            tags = '('+','.join(kw.keys())+')'
+            values = tuple(kw.values())
+        else:
+            raise Exception('No values!')
+        try:
+            logging.info("insert into {0} {1} values {2}".format(self.tbname, tags, values))
+            self.db.c.execute(
+                "insert into {0} {1} values {2}".format(self.tbname, tags, values)
+            )
+            self.db.commit()
+        except pymysql.err.ProgrammingError as e:
+            logging.warning(e)
+
 
 if __name__ == '__main__':
     db = MysqlConn('localhost', 3306, 'yxd', '12345679', 'stock')
-    tb = MysqlOpt(db, 'info')
-    data = tb.select('name','type',type=11)
+    tb = MysqlOpt(db, 'base_link')
+    tb.insert('ffff')
+

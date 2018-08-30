@@ -16,4 +16,7 @@ class StockInfoItem(scrapy.Item):
     stock_id = scrapy.Field()
     stock_type = scrapy.Field()
 
+class StockBasicLinksItem(scrapy.Item):
+    links = scrapy.Field()
+
 

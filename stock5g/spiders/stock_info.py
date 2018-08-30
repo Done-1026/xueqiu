@@ -5,8 +5,8 @@ import urllib
 
 import scrapy
 
-from Utils import util_settings as us
 from stock5g.items import StockInfoItem
+
 
 class StockInfo(scrapy.Spider):
     name = 'stock_info'
