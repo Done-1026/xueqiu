@@ -10,19 +10,19 @@ logging.basicConfig(level=logging.INFO)
 
 
 class StockValue(scrapy.Spider):
-    name = 'stock_value'
+    name = 'stock_links'
     custom_settings = {
         'ITEM_PIPELINES':{'stock5g.pipelines.StockBaseLinksPipeline': 400}
     }
 
     def start_requests(self):
-        for i in self.conn_tb_info.select('code', 'name', type=11):
+        for i in self.conn_tb_info.select('code', 'name', type=11):  # type为股票市场，11为A股市场
             code, name = i
             url = 'https://xueqiu.com/S/'+code
             headers = {
                 'referer': 'https://xueqiu.com/k?q='+name
             }
-            yield scrapy.Request(url, headers=headers,meta={'code': code, 'name': name})
+            yield scrapy.Request(url, headers=headers,meta={'code': code, 'name': name}, callback=self.parse)
 
     def parse(self, response):
         item = StockBasicLinksItem()

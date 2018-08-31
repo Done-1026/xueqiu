@@ -4,8 +4,9 @@ import pymysql
 
 logging.basicConfig(level=logging.INFO)
 
+
 class MysqlConn:
-    # 创建数据库连接
+    """创建数据库连接"""
     def __init__(self, host, port, user, password, database):
         self.conn = pymysql.connect(
             host=host, port=port, user=user, password=password, database=database)
@@ -36,6 +37,9 @@ class MysqlOpt:
             else:
                 term.append(k+'='+"'"+v+"'")
         return ' and '.join(term)
+
+    def get_tags(self):
+        self.db.c.execute("")
 
     def select(self, *tags, **kw):
         """返回查询结果，tags为查询的字段，kw为查询条件"""
@@ -79,6 +83,6 @@ class MysqlOpt:
 
 if __name__ == '__main__':
     db = MysqlConn('localhost', 3306, 'yxd', '12345679', 'stock')
-    tb = MysqlOpt(db, 'base_link')
-    tb.insert('ffff')
+    tb = MysqlOpt(db, 'base_links')
+    a = tb.select()
 

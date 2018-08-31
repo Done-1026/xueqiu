@@ -13,15 +13,12 @@ from Utils.mysql_api import MysqlConn,MysqlOpt
 logging.basicConfig(level=logging.INFO)
 
 
-class StockInfoPipeline(object):
-
+class BasePipeline(object):
+    """pipeline基类，用于访问settings参数,连接数据库，提供连接表方法"""
     def __init__(self, host, port, user, password, database):
-        self.host = host
-        self.port = port
-        self.user = user
-        self.password = password
-        self.database = database
-        logging.info((self.host, self.port, self.user, self.password, self.database))
+        self.conn_db = MysqlConn(
+            host=host, port=port, user=user, password=password, database=database)
+        logging.info((host, port, user, password, database))
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -33,31 +30,40 @@ class StockInfoPipeline(object):
             database=crawler.settings.get('MYSQL_DB')
         )
 
-    def open_spider(self, spider):
-        self.conn_db = MysqlConn(
-            host=self.host, port=self.port, user=self.user, password=self.password, database=self.database)
-        self.conn_tb_info = MysqlOpt(self.conn_db, 'info')
+    def connect_tb(self, tbname):
+        conn_tb = MysqlOpt(self.conn_db, tbname)
+        return conn_tb
 
+
+class StockInfoPipeline(BasePipeline):
+    """连接info表，将item分析后存入表中"""
+    def open_spider(self, spider):
+        self.conn_tb_info = self.connect_tb('info')
 
     def close_spider(self, spider):
         self.conn_db.close()
 
     def process_item(self, item, spider):
         try:
-            self.conn_db.c.execute('insert into info values {0}'.format(tuple(item.values())))
+            #print(item.values)
+            self.conn_tb_info.insert(list(item.values()))
             return item
         except pymysql.err.IntegrityError as e:
             logging.info('<'+item['name']+'>'+'该公司信息已存在!')
 
 
-class StockBaseLinksPipeline(StockInfoPipeline):
-
+class StockBaseLinksPipeline(BasePipeline):
+    """
+    创建info表连接，并赋给spider，使得可在spider中使用该连接获取数据,
+    创建base_links表连接，分析item后，存入数据库中
+    """
     def open_spider(self, spider):
-        self.conn_db = MysqlConn(
-            host=self.host, port=self.port, user=self.user, password=self.password, database=self.database)
-        self.conn_tb_info = MysqlOpt(self.conn_db, 'info')
-        self.conn_tb_links = MysqlOpt(self.conn_db, 'base_links')
+        self.conn_tb_info = self.connect_tb('info')
+        self.conn_tb_links = self.connect_tb('base_links')
         spider.conn_tb_info = self.conn_tb_info
+
+    def close_spider(self, spider):
+        self.conn_db.close()
 
     def process_item(self, item, spider):
         link = item['links']

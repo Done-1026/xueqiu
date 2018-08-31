@@ -38,3 +38,13 @@ create table base_links(
   dbfx varchar(200),
   report varchar(200)
 );
+
+CREATE TABLE `info` (
+  `code` varchar(15) NOT NULL,
+  `ind_id` int(11) DEFAULT NULL,
+  `ind_name` varchar(50) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `stock_id` int(11) DEFAULT NULL,
+  `type` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="stock@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.10">
     <root id="1">
-      <ServerVersion>8.0.11</ServerVersion>
+      <ServerVersion>8.0.12</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <DefaultCasing>mixed/mixed</DefaultCasing>
+      <DefaultCasing>lower/lower</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
@@ -1294,40 +1294,41 @@
       <ColNames>code</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="315" parent="275" name="code">
+    <foreign-key id="315" parent="274" name="base_links_ibfk_1">
+      <ColNames>code</ColNames>
+      <RefSchemaName>stock</RefSchemaName>
+      <RefTableName>info</RefTableName>
+      <RefColNames>code</RefColNames>
+    </foreign-key>
+    <column id="316" parent="275" name="code">
       <Position>1</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="275" name="ind_id">
+    <column id="317" parent="275" name="ind_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="275" name="ind_name">
+    <column id="318" parent="275" name="ind_name">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="275" name="name">
+    <column id="319" parent="275" name="name">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="275" name="stock_id">
+    <column id="320" parent="275" name="stock_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="275" name="type">
+    <column id="321" parent="275" name="type">
       <Position>6</Position>
       <DataType>tinyint(4)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="321" parent="275" name="search_name">
-      <Position>7</Position>
-      <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="322" parent="275" name="PRIMARY">
