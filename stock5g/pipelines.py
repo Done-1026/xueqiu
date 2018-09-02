@@ -69,3 +69,17 @@ class StockBaseLinksPipeline(BasePipeline):
         link = item['links']
         self.conn_tb_links.insert(link)
         return item
+
+class DataPipeline(BasePipeline):
+    """
+    创建表links连接，传递给spider
+    """
+    def open_spider(self, spider):
+        self.conn_tb_links = self.connect_tb('base_links')
+        spider.conn_tb_links = self.conn_tb_links
+
+    def close_spider(self, spider):
+        self.conn_db.close()
+
+    def process_item(self, item, spider):
+        return item
