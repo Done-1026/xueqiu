@@ -75,8 +75,9 @@ class DataPipeline(BasePipeline):
     创建表links连接，传递给spider
     """
     def open_spider(self, spider):
-        self.conn_tb_links = self.connect_tb('base_links')
-        spider.conn_tb_links = self.conn_tb_links
+        spider.conn_tb_links = self.connect_tb('base_links')
+        spider.conn_tb_gsjj = self.connect_tb('gsjj')
+        spider.conn_tb_zycwzb = self.connect_tb('zycwzb')
 
     def close_spider(self, spider):
         self.conn_db.close()

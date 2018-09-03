@@ -1,5 +1,6 @@
 import logging
 
+import numpy as np
 import pymysql
 
 logging.basicConfig(level=logging.INFO)
@@ -76,13 +77,13 @@ class MysqlOpt:
             )
             self.db.commit()
         except pymysql.err.ProgrammingError as e:
-            logging.warning(e)
+            logging.warning(e, values)
         except pymysql.err.IntegrityError as e:
-            logging.warning(e)
+            logging.warning(e, values)
 
 
 if __name__ == '__main__':
     db = MysqlConn('localhost', 3306, 'yxd', '12345679', 'stock')
-    tb = MysqlOpt(db, 'base_links')
+    tb = MysqlOpt(db, 'gsjj')
     a = tb.select()
 
