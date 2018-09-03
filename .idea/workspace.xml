@@ -90,7 +90,7 @@
         <counts>
           <entry key="Python Console" value="276" />
           <entry key="dummy" value="5" />
-          <entry key="py" value="2436" />
+          <entry key="py" value="2440" />
           <entry key="sql" value="1307" />
           <entry key="txt" value="42" />
         </counts>
@@ -98,7 +98,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="47" />
-          <entry key="Python" value="2712" />
+          <entry key="Python" value="2716" />
           <entry key="Scratch" value="1307" />
         </counts>
       </usages-collector>
@@ -152,8 +152,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stock5g/spiders/zycwzb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+            <state relative-caret-position="278">
+              <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -232,8 +232,8 @@
         <option value="$PROJECT_DIR$/stock5g/pipelines.py" />
         <option value="$PROJECT_DIR$/stock5g/spiders/gsjj.py" />
         <option value="$PROJECT_DIR$/create_tb.txt" />
-        <option value="$PROJECT_DIR$/stock5g/spiders/zycwzb.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql" />
+        <option value="$PROJECT_DIR$/stock5g/spiders/zycwzb.py" />
       </list>
     </option>
   </component>
@@ -244,7 +244,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="202" />
+    <option name="x" value="109" />
     <option name="y" value="124" />
     <option name="width" value="1400" />
     <option name="height" value="851" />
@@ -396,7 +396,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="202" y="124" width="1400" height="851" extended-state="0" />
+    <frame x="109" y="124" width="1400" height="851" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17089552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -592,8 +592,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stock5g/spiders/zycwzb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="50" column="32" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+        <state relative-caret-position="278">
+          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
