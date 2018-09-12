@@ -8,10 +8,11 @@ from stock5g.items import GsjjItem
 
 logging.basicConfig(level=logging.INFO)
 
+
 class Gsjj(scrapy.Spider):
     name = 'zycwzb'
     custom_settings = {
-        'ITEM_PIPELINES':{'stock5g.pipelines.DataPipeline': 300}
+        'ITEM_PIPELINES': {'stock5g.pipelines.DataPipeline': 300}
     }
 
     def start_requests(self):
@@ -35,10 +36,10 @@ class Gsjj(scrapy.Spider):
     def parse1(self, response):
         self.conn_tb_zycwzb.select()
         tags = list(np.array(self.conn_tb_zycwzb.db.c.description)[..., 0])
-        #logging.info(tags)
+        # logging.info(tags)
         results = json.loads(response.text).get('list')
         for result in results:
-            #logging.info(result)
+            # logging.info(result)
             datas = [0, response.meta['code']]
             for tag in tags[2:]:
                 data = result.get(tag, False)
@@ -47,6 +48,6 @@ class Gsjj(scrapy.Spider):
                         data = 0
                     datas.append(data)
                 else:
-                    raise Exception(tag+'数据错误！')
-            #logging.info(datas)
+                    raise Exception(tag + '数据错误！')
+            # logging.info(datas)
             self.conn_tb_zycwzb.insert(datas)

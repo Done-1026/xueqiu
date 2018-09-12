@@ -7,23 +7,28 @@ logging.basicConfig(level=logging.INFO)
 
 
 class MysqlConn:
-    """创建数据库连接"""
+    """
+    创建一个mysql数据库连接,数据库必须已被创建
+    """
+
     def __init__(self, host, port, user, password, database):
         self.conn = pymysql.connect(
             host=host, port=port, user=user, password=password, database=database)
         self.c = self.conn.cursor()
 
     def close(self, save=True):
+        # 断开连接，save参数判定是否保存，默认保存
         if save:
             self.conn.commit()
         self.conn.close()
 
     def commit(self):
+        # 提交已执行的操作
         self.conn.commit()
 
 
 class MysqlOpt:
-    """创建表连接"""
+    """在库连接基础上，创建表连接"""
     def __init__(self, db, tbname):
         self.db = db
         self.tbname = tbname
@@ -34,9 +39,9 @@ class MysqlOpt:
         term = []
         for k, v in kw.items():
             if isinstance(v, int):
-                term.append(k+'='+str(v))
+                term.append(k + '=' + str(v))
             else:
-                term.append(k+'='+"'"+v+"'")
+                term.append(k + '=' + "'" + v + "'")
         return ' and '.join(term)
 
     def get_tags(self):
@@ -56,22 +61,26 @@ class MysqlOpt:
         return result
 
     def insert(self, *args, **kw):
-        # 插入
+        """
+        插入一条记录
+        args 插入的字段，元组类型，如果
+        kw  相应字段的values，元组类型
+        """
         if args != ():
             tags = ''
-            #logging.warning(tags)
-            #logging.warning(args)
-            if isinstance(args[0], (list, tuple)):
+            # logging.warning(tags)
+            # logging.warning(args)
+            if isinstance(args[0], (list, tuple)):  # 如果以列表或元组列式传入
                 values = str(tuple(args[0]))
             else:
                 values = str(tuple(args))
         elif kw:
-            tags = '('+','.join(kw.keys())+')'
+            tags = '(' + ','.join(kw.keys()) + ')'
             values = tuple(kw.values())
         else:
             raise Exception('No values!')
         try:
-            #logging.info("insert into {0} {1} values {2}".format(self.tbname, tags, values))
+            # logging.info("insert into {0} {1} values {2}".format(self.tbname, tags, values))
             self.db.c.execute(
                 "insert into {0} {1} values {2}".format(self.tbname, tags, values)
             )
@@ -86,4 +95,3 @@ if __name__ == '__main__':
     db = MysqlConn('localhost', 3306, 'yxd', '12345679', 'stock')
     tb = MysqlOpt(db, 'gsjj')
     a = tb.select()
-
