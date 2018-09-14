@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65ebe989-0fab-49c4-9e78-d5e53163c7aa" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e5af861f-85ee-43be-89d2-66277b1a7c8e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e5af861f-85ee-43be-89d2-66277b1a7c8e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utils/mysql_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/mysql_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock5g/spiders/zycwzb.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock5g/spiders/zycwzb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/util_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/util_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock5g/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/stock5g/pipelines.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +44,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="stock: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="stock@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="stock: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="zycwzb: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -59,31 +54,33 @@
           <entry key="base_links" value="5" />
           <entry key="cfg" value="2" />
           <entry key="gsjj" value="2" />
-          <entry key="info" value="2" />
+          <entry key="info" value="3" />
+          <entry key="info2" value="1" />
           <entry key="jpg" value="1" />
-          <entry key="py" value="10" />
-          <entry key="sql" value="2" />
-          <entry key="txt" value="5" />
+          <entry key="py" value="13" />
+          <entry key="sql" value="5" />
+          <entry key="txt" value="6" />
           <entry key="zycwzb" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="12" />
+          <entry key="Database Element" value="14" />
           <entry key="Image" value="1" />
           <entry key="Ini" value="2" />
-          <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="10" />
-          <entry key="Scratch" value="2" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="13" />
+          <entry key="SQL" value="1" />
+          <entry key="Scratch" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="276" />
+          <entry key="Python Console" value="1278" />
           <entry key="cfg" value="4" />
           <entry key="dummy" value="5" />
-          <entry key="py" value="2795" />
-          <entry key="sql" value="1307" />
+          <entry key="py" value="4622" />
+          <entry key="sql" value="1485" />
           <entry key="txt" value="42" />
         </counts>
       </usages-collector>
@@ -91,19 +88,22 @@
         <counts>
           <entry key="Ini" value="4" />
           <entry key="PLAIN_TEXT" value="47" />
-          <entry key="Python" value="3071" />
-          <entry key="Scratch" value="1307" />
+          <entry key="Python" value="5900" />
+          <entry key="SQL" value="11" />
+          <entry key="Scratch" value="1474" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
     </session>
@@ -113,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stock5g/spiders/zycwzb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+            <state relative-caret-position="192">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -122,11 +122,65 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Utils/util_settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock5g/pipelines.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="61" column="41" lean-forward="true" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+              <folding>
+                <element signature="e#193#207#0" expanded="true" />
+                <marker date="1536911429621" expanded="true" signature="1082:1084" ph="..." />
+                <marker date="1536911429621" expanded="true" signature="1797:1832" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utils/mysql_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="530">
+              <caret line="86" lean-forward="true" selection-end-line="86" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1536910730694" expanded="true" signature="796:860" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="136" column="22" lean-forward="true" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock5g/spiders/gsjj.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-320">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/create_tb.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-304">
+              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -158,17 +212,18 @@
         <option value="$PROJECT_DIR$/stock5g/spiders/stockinfo.py" />
         <option value="$PROJECT_DIR$/stock5g/spiders/stock_value.py" />
         <option value="$PROJECT_DIR$/stock5g/spiders/stock_links.py" />
-        <option value="$PROJECT_DIR$/Utils/util_settings.py" />
         <option value="$PROJECT_DIR$/stock5g/settings.py" />
         <option value="$PROJECT_DIR$/stock5g/items.py" />
-        <option value="$PROJECT_DIR$/stock5g/pipelines.py" />
         <option value="$PROJECT_DIR$/create_tb.txt" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql" />
         <option value="$PROJECT_DIR$/stock5g/spiders/gsjj.py" />
         <option value="$PROJECT_DIR$/scrapy.cfg" />
         <option value="$PROJECT_DIR$/stock5g/middlewares.py" />
         <option value="$PROJECT_DIR$/stock5g/spiders/zycwzb.py" />
+        <option value="$PROJECT_DIR$/Utils/util_settings.py" />
+        <option value="e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/info.sql" />
         <option value="$PROJECT_DIR$/Utils/mysql_api.py" />
+        <option value="$PROJECT_DIR$/stock5g/pipelines.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql" />
       </list>
     </option>
   </component>
@@ -179,10 +234,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="430" />
-    <option name="y" value="171" />
+    <option name="x" value="258" />
+    <option name="y" value="64" />
     <option name="width" value="1400" />
-    <option name="height" value="857" />
+    <option name="height" value="907" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -331,10 +386,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="430" y="171" width="1400" height="857" extended-state="0" />
+    <frame x="178" y="68" width="1400" height="907" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17985074" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18507463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -344,13 +399,13 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3287858" />
-      <window_info anchor="bottom" id="Database Console" order="7" sideWeight="0.4992636" weight="0.47486034" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="7" sideWeight="0.4992636" visible="true" weight="0.24093264" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.329235" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49925372" visible="true" weight="0.33795014" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32901555" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49925372" weight="0.33795014" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50074625" side_tool="true" weight="0.33333334" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3282123" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.329235" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32642487" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32901555" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -403,13 +458,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://D:/my_env/meitelem/lib/python3.6/site-packages/scrapy/crawler.py" />
-    <entry file="file://$PROJECT_DIR$/Utils/util_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stock5g/items.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -424,31 +472,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2064">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/gsjj">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create_tb.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -480,18 +507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stock5g/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="79" column="57" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
-          <folding>
-            <element signature="e#193#207#0" expanded="true" />
-            <marker date="1535959783197" expanded="true" signature="1098:1100" ph="..." />
-            <marker date="1535959783197" expanded="true" signature="1973:2008" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/zycwzb">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -506,16 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stock5g/spiders/gsjj.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stock5g/spiders/stock_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -525,18 +530,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stock5g/spiders/zycwzb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="47" column="32" lean-forward="true" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        <state relative-caret-position="192">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/util_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_tb.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock5g/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="61" column="41" lean-forward="true" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+          <folding>
+            <element signature="e#193#207#0" expanded="true" />
+            <marker date="1536911429621" expanded="true" signature="1082:1084" ph="..." />
+            <marker date="1536911429621" expanded="true" signature="1797:1832" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/info.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock5g/spiders/gsjj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-320">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e5af861f-85ee-43be-89d2-66277b1a7c8e/schema/stock/table/info2">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Utils/mysql_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="530">
+          <caret line="86" lean-forward="true" selection-end-line="86" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1536910730694" expanded="true" signature="796:860" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e5af861f-85ee-43be-89d2-66277b1a7c8e/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="136" column="22" lean-forward="true" selection-start-line="136" selection-start-column="22" selection-end-line="136" selection-end-column="22" />
         </state>
       </provider>
     </entry>

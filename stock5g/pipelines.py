@@ -6,8 +6,6 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import logging
 
-import pymysql
-
 from Utils.mysql_api import MysqlConn,MysqlOpt
 
 logging.basicConfig(level=logging.INFO)
@@ -44,12 +42,8 @@ class StockInfoPipeline(BasePipeline):
         self.conn_db.close()
 
     def process_item(self, item, spider):
-        try:
-            #print(item.values)
-            self.conn_tb_info.insert(list(item.values()))
-            return item
-        except pymysql.err.IntegrityError as e:
-            logging.info('<'+item['name']+'>'+'该公司信息已存在!')
+        self.conn_tb_info.insert(list(item.values()))
+        return item
 
 
 class StockBaseLinksPipeline(BasePipeline):
